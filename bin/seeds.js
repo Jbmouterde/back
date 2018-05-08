@@ -7,21 +7,42 @@ mongoose.connect(`mongodb://localhost/${dbName}`);
 const articles =[
   {
     title : "cheese", 
-    date : "good",
+    date: new Date(1910, 10, 08),
     type : "good",
-    email : "j@m.co"
+    description : " c'est dfdlffrf good",
+    nameWritter : " Jack",
+    location : "12 rue ehne",
+    email : "j@m.co",
+    imageUrl : "https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg?auto=compress&cs=tinysrgb&h=350",
+    organization : "World Wildlife Fund",
+    reportChange : "Increased rainfall",
+    type : "Personal Information"
   }, 
   {
     title : "chedfdfdese", 
-    date : "gofdfdod",
+    date: new Date(1913, 10, 08),
     type : "goofdfdd",
-    email : "fd@m.co"
+    description : " c'estdsdsds dfdlffrf good",
+    nameWritter : " bob",
+    location : "13 rue ehne",
+    email : "fd@m.co",
+    imageUrl : "https://cdn.pixabay.com/photo/2017/03/26/12/13/countryside-2175353_960_720.jpg",
+    organization : "World Wildlife Fund",
+    reportChange : "Increased rainfall",
+    type : "Project"
   }, 
   {
     title : "cheesssse", 
-    date : "good",
+    date: new Date(1910, 10, 08),
     type : "good",
-    email : "jfdfd@m.co"
+    description : " c'est dfdlffrf goodsdsdd",
+    nameWritter : " henri",
+    location : "12 rue edfhne",
+    email : "jfdfd@m.co",
+    imageUrl : "https://images.pexels.com/photos/210186/pexels-photo-210186.jpeg?auto=compress&cs=tinysrgb&h=350",
+    organization : "Centra Terra Viva",
+    reportChange : "Decreased rainfall",
+    type : "Interview"
   }
 
 ]
