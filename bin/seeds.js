@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Article = require('../models/article-model');
 
-const dbName = 'api/articles';
+const dbName = 'server';
 mongoose.connect(`mongodb://localhost/${dbName}`);
 
 const articles =[
