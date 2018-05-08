@@ -21,5 +21,24 @@ router.get("/articles", (req,res,next)=>{
   })
 })
 
+// GET DETAILS 
+router.get("/articles/:articleId", (req,res,next)=>{
+  if (!mongoose.Types.ObjectId.isValid(req.params.articleId)){
+    next();
+    return; 
+  }
+
+  Article.findById(req.params.articleId)
+  .then((article)=>{
+    if(!article){
+      next(); // show error if phone was not found
+      return;
+    }
+    res.json(article)
+  })
+  .catch((err)=>{
+    next(err)
+  })
+})
 
 module.exports = router;
