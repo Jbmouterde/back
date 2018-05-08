@@ -6,12 +6,11 @@ mongoose.connect(`mongodb://localhost/${dbName}`);
 
 const articles =[
   {
-    title : "cheese", 
-    date: new Date(1910, 10, 08),
-    type : "good",
-    description : " c'est dfdlffrf good",
+    title : "cHuge RainFall in Alaska", 
+    date: new Date(2018, 03, 08),
+    description : "There is a lots of rain in Alaska right now, please help",
     nameWritter : " Jack",
-    location : "12 rue ehne",
+    location : "12 rue ehne, Alaska",
     email : "j@m.co",
     imageUrl : "https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg?auto=compress&cs=tinysrgb&h=350",
     organization : "World Wildlife Fund",
@@ -19,10 +18,9 @@ const articles =[
     type : "Personal Information"
   }, 
   {
-    title : "chedfdfdese", 
-    date: new Date(1913, 10, 08),
-    type : "goofdfdd",
-    description : " c'estdsdsds dfdlffrf good",
+    title : "People are under the water in New York", 
+    date: new Date(2017, 10, 08),
+    description : " There is water everywhere",
     nameWritter : " bob",
     location : "13 rue ehne",
     email : "fd@m.co",
@@ -32,10 +30,9 @@ const articles =[
     type : "Project"
   }, 
   {
-    title : "cheesssse", 
-    date: new Date(1910, 10, 08),
-    type : "good",
-    description : " c'est dfdlffrf goodsdsdd",
+    title : "No more water in africa", 
+    date: new Date(2017, 11, 08),
+    description : "People in Africa needs to have water in order to grow some plants & foods",
     nameWritter : " henri",
     location : "12 rue edfhne",
     email : "jfdfd@m.co",
