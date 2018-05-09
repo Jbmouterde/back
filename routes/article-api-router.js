@@ -21,6 +21,23 @@ router.get("/articles", (req,res,next)=>{
   })
 })
 
+
+// POST CREATE 
+// create an article
+// POST/api/articles
+router.post("/articles", (req,res,next)=>{
+  const {title, date , description, nameWritter, location , email, imageUrl, organization, reportChange, type}= req.body;
+  Article.create ({title, date , description, nameWritter, location , email, imageUrl, organization, reportChange, type})
+  .then((newArticle)=>{
+    res.json(newArticle);
+  })
+  .catch((err)=>{
+    next(err);
+  })
+})
+
+
+
 // GET DETAILS 
 router.get("/articles/:articleId", (req,res,next)=>{
   if (!mongoose.Types.ObjectId.isValid(req.params.articleId)){
@@ -40,5 +57,7 @@ router.get("/articles/:articleId", (req,res,next)=>{
     next(err)
   })
 })
+
+
 
 module.exports = router;
