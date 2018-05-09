@@ -50,7 +50,12 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
-app.use(cors());
+app.use(cors(
+  {
+    credentials : true,
+    origin : ['http://localhost:4200']
+  }
+));
 
 hbs.registerHelper('ifUndefined', (value, options) => {
   if (arguments.length < 2)
@@ -82,7 +87,7 @@ const index = require('./routes/index');
 app.use('/', index);
 
 const authRoutes = require('./routes/auth');
-app.use('/auth', authRoutes);
+app.use('/api', authRoutes);
       
 const articleRouter = require('./routes/article-api-router');
 app.use('/api', articleRouter);
