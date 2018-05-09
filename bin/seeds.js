@@ -6,7 +6,7 @@ mongoose.connect(`mongodb://localhost/${dbName}`);
 
 const articles =[
   {
-    title : "cHuge RainFall in Alaska", 
+    title : "Huge RainFall in Alaska", 
     date: new Date(2018, 03, 08),
     description : "There is a lots of rain in Alaska right now, please help",
     nameWritter : " Jack",
