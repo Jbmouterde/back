@@ -62,6 +62,24 @@ router.get("/articles/:articleId", (req,res,next)=>{
   })
 })
 
+// DELETE 
+router.delete("/articles/:articleId", (req,res,next)=>{
+  if (!mongoose.Types.ObjectId.isValid(req.params.articleId)){
+    next();
+    return; 
+  }
+Article.findByIdAndRemove(req.params.articleId)
+.then((removeArticle)=>{
+  if(!removeArticle){
+    next(); // 
+    return;
+  }
+  res.json(removeArticle);
+})
+.catch((err)=>{
+  next(err);
+})
+});
 
 
 module.exports = router;
