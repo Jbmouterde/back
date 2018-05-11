@@ -25,8 +25,12 @@ router.get("/articles", (req,res,next)=>{
 // POST CREATE 
 // create an article
 // POST/api/articles
+//location change
 router.post("/articles", (req,res,next)=>{
-  const {title, date , description, nameWritter, location , email, imageUrl, organization, reportChange, type}= req.body;
+  const {title, date , description, nameWritter ,location, email,imageUrl, organization, reportChange, type}= req.body;
+  // const location = {
+  //   coordinates: [latitude, longitude]
+  // };
   Article.create ({title, date , description, nameWritter, location , email, imageUrl, organization, reportChange, type})
   .then((newArticle)=>{
     res.json(newArticle);
