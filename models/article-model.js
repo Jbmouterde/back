@@ -15,6 +15,7 @@ const articleSchema = new Schema({
   //   ]
   // }, 
   ,
+  like : {type : Number, default : 0},
   email: String,
   imageUrl : {type : String}, 
   organization: { 
