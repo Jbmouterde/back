@@ -3,6 +3,8 @@ const passport = require('passport');
 const authRoutes = express.Router();
 const User = require("../models/User");
 
+const Admin = require("../models/admin-model");
+
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
@@ -32,7 +34,7 @@ authRoutes.post("/login", (req,res,next)=>{
 authRoutes.post("/signup", (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
-  const rol = req.body.role;
+  const role = req.body.role;
   if (username === "" || password === "") {
     //new
     const err = new Error("Username or Password invalid");
@@ -55,7 +57,7 @@ authRoutes.post("/signup", (req, res, next) => {
     const newUser = new User({
       username,
       password: hashPass,
-      role:"teacher"
+      role:"user"
     });
 
     newUser.save((err) => {
@@ -84,5 +86,9 @@ authRoutes.get("/checklogin", (req,res,next)=>{
 }
   res.json({userInfo : req.user});
 });
+
+
+// ADMIN 
+
 
 module.exports = authRoutes;
