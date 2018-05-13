@@ -1,8 +1,8 @@
-// const express = require("express"); 
+const express = require("express"); 
 
-// const User = require("../models/User");
+const User = require("../models/User");
 
-// const router = express.Router();
+const router = express.Router();
 
 
 
@@ -26,8 +26,8 @@
 // });
 
 
-// // DELETE OTHER USER 
-// // PART 1 
+// DELETE OTHER USER 
+// PART 1 
 
 // router.get('/admin/users/:usersId/delete', (req,res,next)=>{
 //   User.findByIdAndRemove(req.params.usersId)
@@ -39,4 +39,19 @@
 //   })
 // })
 
+//TEST 
+router.get("/admin", (req,res,next)=>{
+  // find gives an Array
+  User
+  .find()
+  .limit(5)
+  .sort({createdAt: -1})
+  .then((users)=>{
+    res.json(users);
+  })
+  .catch((err)=>{
+    next(err);
+  })
+})
 
+module.exports = router;
