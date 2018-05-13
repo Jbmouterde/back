@@ -89,7 +89,12 @@ app.use('/', index);
 const authRoutes = require('./routes/auth');
 app.use('/api', authRoutes);
       
+
 const articleRouter = require('./routes/article-api-router');
 app.use('/api', articleRouter);
 
+
+// const adminRouter = require('./routes/admin-router');
+// app.use('/api', adminRouter);
+      
 module.exports = app;
