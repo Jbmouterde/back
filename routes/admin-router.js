@@ -29,10 +29,10 @@ const router = express.Router();
 // DELETE OTHER USER 
 // PART 1 
 
-// router.get('/admin/users/:usersId/delete', (req,res,next)=>{
+// router.delete('/admin/:usersId/delete', (req,res,next)=>{
 //   User.findByIdAndRemove(req.params.usersId)
-//   .then(()=>{
-//     res.redirect('/admin/users')
+//   .then((users)=>{
+//     res.json(users);
 //   })
 //   .catch((err)=>{
 //     next(err)

@@ -7,15 +7,14 @@ const articleSchema = new Schema({
   description: { type: String },
   nameWritter: { type: String }, 
   //GOOGLE MAP INTEGRATION
-  location: 
-  {type :String}
-  // {
-  //   type: { type: String },
-  //   coordinates: [
-  //     { type: Number }
-  //   ]
-  // }, 
-  ,
+  location:
+  //  {type :String}
+  {
+    type: { type: String },
+    coordinates: [
+      { type: Number }
+    ]
+  }, 
   like : {type : Number, default : 0},
   email: String,
   imageUrl : {type : String}, 
