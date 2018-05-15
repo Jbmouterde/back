@@ -62,6 +62,31 @@ router.get("/articles/:articleId", (req,res,next)=>{
     next(err)
   })
 })
+// UPDATE ARTICLE 
+router.put("/articles/:articleId", (req,res,next)=>{
+  if (!mongoose.Types.ObjectId.isValid(req.params.articleId)){
+    next();
+    return; 
+  }
+  const {like}= req.body;
+  Article.findByIdAndUpdate(
+    req.params.articleId, 
+    {like},
+    {runValidators : true, new: true } // run validation and "new" get the updated version
+  )
+  .then((updatedArticle)=>{
+    if(!updatedArticle){
+      next(); // show error if phone was not found
+      return;
+    }
+    res.json(updatedArticle);
+  })
+  .catch((err)=>{
+    next(err);
+  })
+});
+
+
 
 // DELETE 
 router.delete("/articles/:articleId", (req,res,next)=>{
