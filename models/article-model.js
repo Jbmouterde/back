@@ -22,13 +22,17 @@ const articleSchema = new Schema({
     type: String,
     enum : ["World Wildlife Fund","Centra Terra Viva","Giz","World Ressource institute","Other"]
   },
-  reportChange: { 
+  species: { 
     type: String,
-    enum : ["Increased rainfall","Decreased rainfall","Changes in timing of seasons","Storms","Loss of water source", "Wildlfires", "none"]
+    enum : ["Mammals","Reptiles","Birds","Insects","Aquatic Animals", "Other"]
   },
   type: { 
     type: String,
     enum : ["Personal Information","Interview","Project","Story","Publication"]
+  },
+  danger: { 
+    type: String,
+    enum : ["In Danger","Real Danger","Almost Extinct"]
   },
 },
 {
