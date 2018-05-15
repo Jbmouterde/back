@@ -5,6 +5,7 @@ const articleSchema = new Schema({
   title: { type: String }, 
   date: { type: Date }, 
   description: { type: String },
+  descriptif: { type: String },
   nameWritter: { type: String }, 
   //GOOGLE MAP INTEGRATION
   location:
