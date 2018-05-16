@@ -34,6 +34,8 @@ authRoutes.post("/login", (req,res,next)=>{
 authRoutes.post("/signup", (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
+  const email = req.body.email;
+  const picture = req.body.picture;
   const role = req.body.role;
   if (username === "" || password === "") {
     //new
@@ -57,7 +59,9 @@ authRoutes.post("/signup", (req, res, next) => {
     const newUser = new User({
       username,
       password: hashPass,
-      role:"user"
+      role:"user", 
+      email, 
+      picture
     });
 
     newUser.save((err) => {
@@ -82,7 +86,7 @@ authRoutes.get("/logout", (req, res) => {
 
 authRoutes.get("/checklogin", (req,res,next)=>{
   if(req.user){
-  req.user.password =undefined;
+  req.user.password = undefined;
 }
   res.json({userInfo : req.user});
 });
