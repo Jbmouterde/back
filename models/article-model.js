@@ -16,7 +16,10 @@ const articleSchema = new Schema({
       { type: Number }
     ]
   }, 
-  like : {type : Number, default : 0},
+  likes: {
+    type: Array,
+    default: []
+  },
   email: String,
   imageUrl : {type : String}, 
   organization: { 
