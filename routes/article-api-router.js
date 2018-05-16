@@ -107,6 +107,43 @@ Article.findByIdAndRemove(req.params.articleId)
 })
 });
 
+// UPDATE ARTICLE 
+router.put("/articles/:articleId/like", (req,res,next)=>{
+  if (!mongoose.Types.ObjectId.isValid(req.params.articleId)){
+    next();
+    return; 
+  }
+
+  Article.findById(req.params.articleId)
+    .then((article) => {
+      let change;
+      const hasLiked = article.likes.some(id => id.toString() === req.user._id.toString());
+      
+      if (hasLiked) {
+        change = { $pull: { likes: req.user._id } };
+      }
+      else {
+        change = { $push: { likes: req.user._id } };
+      }
+
+      return Article.findByIdAndUpdate(
+        req.params.articleId, 
+        change,
+        {runValidators : true, new: true } // run validation and "new" get the updated version
+      );
+    })
+    .then((updatedArticle)=>{
+      if(!updatedArticle){
+        next(); // show error if phone was not found
+        return;
+      }
+      res.json(updatedArticle);
+    })
+    .catch((err)=>{
+      next(err);
+    })
+});
+
 
 
 module.exports = router;
