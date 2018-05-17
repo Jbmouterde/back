@@ -98,3 +98,7 @@ const adminRouter = require('./routes/admin-router');
 app.use('/api', adminRouter);
       
 module.exports = app;
+
+app.use((req,res,next)=>{
+  res.sendFile(__dirname +'/public/index.html')
+});
