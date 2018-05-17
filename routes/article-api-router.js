@@ -11,7 +11,7 @@ router.get("/articles", (req,res,next)=>{
   // find gives an Array
   Article
   .find()
-  .limit(6)
+  // .limit(6)
   .sort({createdAt: -1})
   .then((articles)=>{
     res.json(articles);
