@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
 const articleSchema = new Schema({
-  title: { type: String }, 
+  title: { type: String, required : true }, 
   date: { type: Date }, 
-  description: { type: String },
-  descriptif: { type: String },
-  nameWritter: { type: String }, 
+  description: { type: String, required : true },
+  descriptif: { type: String, required : true },
+  nameWritter: { type: String ,required : true }, 
   //GOOGLE MAP INTEGRATION
   location:
   //  {type :String}
@@ -20,8 +20,8 @@ const articleSchema = new Schema({
     type: Array,
     default: []
   },
-  email: String,
-  imageUrl : {type : String}, 
+  email: {type : String, required : true},
+  imageUrl : {type : String, required : true}, 
   organization: { 
     type: String,
     enum : ["World Wildlife Fund","Centra Terra Viva","Giz","World Ressource institute","Other"]
